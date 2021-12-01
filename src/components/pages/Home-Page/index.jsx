@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 // Router
 import { useHistory } from "react-router";
 
+// Product card component
+import { GroceryItem } from "../../GroceryItem/";
+
 export const HomePage = () => {
 
     // Groceries state
@@ -38,15 +41,15 @@ export const HomePage = () => {
 
     // Router history
     const history = useHistory();
-    console.log(groceries);
+
     return (
         <div className="groceries-page">
             <h1>Grocery List</h1>
             <div className="groceries-container">
                 {
-                    groceries.map( (item) => {
-                        
-                    })
+                    groceries.map( (item) => (
+                        <GroceryItem key={item.id.integerValue} name={item.name.stringValue} price={item.price.doubleValue} img={item.img.stringValue} ></GroceryItem>
+                    ))
                 }
             </div>
         </div>

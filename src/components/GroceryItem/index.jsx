@@ -11,6 +11,11 @@ export const GroceryItem = (props) => {
             <Link to={`/item/${id}`}>
                 <h1 className="grocery-name">{name}</h1>
             </Link>
+            <div className="bottomSection">
+                <p>$ { price }</p>
+                <p>{ weight }</p>
+            </div>
+            
         </div>
     )
 }
