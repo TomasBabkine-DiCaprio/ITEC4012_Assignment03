@@ -48,7 +48,7 @@ export const HomePage = () => {
             <div className="groceries-container">
                 {
                     groceries.map( (item) => (
-                        <GroceryItem key={item.id.integerValue} name={item.name.stringValue} price={item.price.doubleValue} img={item.img.stringValue} ></GroceryItem>
+                        <GroceryItem key={item.id.integerValue} name={item.name.stringValue} price={item.price.doubleValue} img={item.img.stringValue} weight={item.weight.integerValue}></GroceryItem>
                     ))
                 }
             </div>

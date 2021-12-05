@@ -13,7 +13,7 @@ export const GroceryItem = (props) => {
             </Link>
             <div className="bottomSection">
                 <p>$ { price }</p>
-                <p>{ weight }</p>
+                <p>{ weight }g</p>
             </div>
             
         </div>
