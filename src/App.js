@@ -8,6 +8,7 @@ import {
 
 // import pages
 import { HomePage } from './components/pages/Home-Page';
+import { GroceryDetailPage } from './components/pages/GroceryDetailPage';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage></HomePage>
+          </Route>
+          <Route path="/item/:id">
+            <GroceryDetailPage />
           </Route>
         </Switch>
       </Router>

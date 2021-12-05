@@ -1,11 +1,14 @@
 import "./styles.css";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 // Router
 import { useHistory } from "react-router";
 
 // Product card component
 import { GroceryItem } from "../../GroceryItem/";
+
+// Global context
+import GroceryContext from "../../../context/groceryContext";
 
 export const HomePage = () => {
 
@@ -14,6 +17,12 @@ export const HomePage = () => {
 
     // Loading state (used to display a loading message while awaiting a response from the API)
     const [loading, setLoading] = useState([]);
+
+    // Global context
+    const globalState = useContext(GroceryContext);
+
+    // Router history
+    const history = useHistory();
 
     useEffect(
         () => {
@@ -30,26 +39,38 @@ export const HomePage = () => {
             const formattedData = data.documents.map( (item) => {
                 return item.fields;
             })
-
+            
+            // Update groceries state state
             setGroceries(formattedData);
+            
+            // Set the groceries in the global context
+            globalState.initializeGroceryList(formattedData);
+
+            // Loading state
             setLoading(false);
+
         } catch (error) {
             console.log(error);
             setLoading(false);
         }
     }
 
-    // Router history
-    const history = useHistory();
 
+    console.log(groceries);
+    console.log(globalState);
+    // Map through all the grocery items from the database, and display them
     return (
         <div className="groceries-page">
             <h1>Grocery List</h1>
             <div className="groceries-container">
-                {
+                {  
                     groceries.map( (item) => (
-                        <GroceryItem key={item.id.integerValue} name={item.name.stringValue} price={item.price.doubleValue} img={item.img.stringValue} weight={item.weight.integerValue}></GroceryItem>
+                        <GroceryItem key={item.id.integerValue} name={item.name.stringValue} price={item.price.doubleValue} img={item.img.stringValue} weight={item.weight.integerValue} id={item.id.integerValue}></GroceryItem>
                     ))
+                }
+
+                {
+                  loading && <p>Loading data...</p>
                 }
             </div>
         </div>
