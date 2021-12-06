@@ -55,13 +55,10 @@ export const HomePage = () => {
         }
     }
 
-
-    console.log(groceries);
-    console.log(globalState);
     // Map through all the grocery items from the database, and display them
     return (
         <div className="groceries-page">
-            <h1>Grocery List</h1>
+
             <div className="groceries-container">
                 {  
                     groceries.map( (item) => (
