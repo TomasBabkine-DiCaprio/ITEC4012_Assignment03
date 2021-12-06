@@ -55,10 +55,9 @@ export const NewItemPage = () => {
 
     return (
         <div className="new-item-page">
+            <h1>Add a new grocery item</h1>
             <form className="form-layout" onSubmit={handleSubmit(submitGroceryItem)}>
-                <h2>Add a new grocery item: </h2>
-                <br />
-
+                
                 {/* Name */}
                 <label htmlFor="name"> Name </label>
                 <input 
