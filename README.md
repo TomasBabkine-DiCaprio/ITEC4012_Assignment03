@@ -1,6 +1,13 @@
 # Tomas Babkine-Di Caprio - Mark McGregor
 # ITEC4012 - Assignment 03 - Fall 2021
 
+![image](https://user-images.githubusercontent.com/20271000/144893055-9a46f7ab-0022-450c-b665-8f0e176fd7ac.png)
+
+![image](https://user-images.githubusercontent.com/20271000/144893091-22891877-a5d9-4ed8-9129-c0d9d2a0c04d.png)
+
+![image](https://user-images.githubusercontent.com/20271000/144893142-4b9d158f-4130-46d3-985d-7f3b699a362d.png)
+
+
 For this assignment, students had a to create a Firebase database and connect it to a simple front-end. 
 
 In our case, we designed a database to store our grocery list items!
