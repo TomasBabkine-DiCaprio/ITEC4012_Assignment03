@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 
 const GroceryContext = React.createContext({
-    groceries: [],
-    initializeGroceryList: () => {},
+  groceries: [],
+  initializeGroceryList: () => { }
 });
 
 export const GroceryContextProvider = (props) => {
-    // We just need the actual value of the grocery list in this context
-    // Used to display information on the GroceryDetailPage
+  // We just need the actual value of the grocery list in this context
+  // Used to display information on the GroceryDetailPage
 
-    const [groceries, setGroceries] = useState([]);
+  const [groceries, setGroceries] = useState([]);
 
-    const initializeGroceryList = (groceriesFromAPI) => {
-        setGroceries(groceriesFromAPI);
-    }
+  const initializeGroceryList = (groceriesFromAPI) => {
+    setGroceries(groceriesFromAPI);
+  }
 
-    return (
-        <GroceryContext.Provider
-            value={{ groceries: groceries, initializeGroceryList: initializeGroceryList }}
-        >
-            {props.children}
-        </GroceryContext.Provider>
-    )
+  return (
+    <GroceryContext.Provider
+      value={{ groceries: groceries, initializeGroceryList: initializeGroceryList }}
+    >
+      {props.children}
+    </GroceryContext.Provider>
+  )
 }
 
 export default GroceryContext;

@@ -8,21 +8,23 @@ import GroceryContext from '../../../context/groceryContext';
 
 export const GroceryDetailPage = (props) => {
 
-    // Get id from the URL
-    const { id } = useParams();
+  // Get id from the URL
+  const { id } = useParams();
 
-    const [groceryItem, setGroceryItem] = useState({});
+  const [groceryItem, setGroceryItem] = useState({});
 
-    // Global state where all the grocery items info are stored
-    const globalState = useContext(GroceryContext);
-    console.log(globalState);
+  // Global state where all the grocery items info are stored
+  const globalState = useContext(GroceryContext);
 
-    useEffect( () => {
+  useEffect(() => {
+    const grocery = globalState.groceries.find(
+      (item) => item.id.stringValue === id
+    );
+    setGroceryItem(grocery);
+  }, []);
 
-    }, []);
-
-    return (
-        <div>Now showing {id}</div>
-    )
-
+  return (
+    <div>Now showing {id}
+      <img src={groceryItem.image?.stringValue} />
+  )
 }
