@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const GroceryItem = (props) => {
 
-    const { id, name, price, img, weight, category, expires } = props;
+    const { id, name, price, img, weight } = props;
 
     return (
         <div className="groceryItem">

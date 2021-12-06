@@ -1,9 +1,6 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from 'react';
 
-// Router
-import { useHistory } from "react-router";
-
 // Product card component
 import { GroceryItem } from "../../GroceryItem/";
 
@@ -20,9 +17,6 @@ export const HomePage = () => {
 
   // Global context
   const globalState = useContext(GroceryContext);
-
-  // Router history
-  const history = useHistory();
 
   useEffect(
     () => {
