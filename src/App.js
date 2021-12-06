@@ -9,6 +9,7 @@ import {
 // import pages
 import { HomePage } from './components/pages/Home-Page';
 import { GroceryDetailPage } from './components/pages/GroceryDetailPage';
+import { NewItemPage } from './components/pages/NewItemPage';
 
 // import NavBar
 import { Navbar } from './components/Navbar';
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage></HomePage>
+          </Route>
+          <Route exact path="/new">
+            <NewItemPage></NewItemPage>
           </Route>
           <Route path="/item/:id">
             <GroceryDetailPage />

@@ -9,35 +9,35 @@ export const NewItemPage = () => {
 
     const history = useHistory();
 
-    const submitPet = async(formVals) => {
+    const submitGroceryItem = async(formVals) => {
         const formattedData = {
             fields: {
                 id: {
-                    stringValue: formVals.id
-                },
-                breed: {
-                    stringValue: formVals.breed
-                },
-                age: {
-                    stringValue: formVals.age
+                    integerValue: formVals.id
                 },
                 name: {
                     stringValue: formVals.name
                 },
-                petType: {
-                    stringValue: formVals.petType
+                category: {
+                    stringValue: formVals.category
                 },
-                image: {
-                    stringValue: formVals.image
+                price: {
+                    doubleValue: formVals.price
                 },
-                isAdopted: {
-                    booleanValue: false
+                img: {
+                    stringValue: formVals.img
+                },
+                weight: {
+                    integerValue: formVals.weight
+                },
+                description: {
+                    stringValue: formVals.description
                 }
             }
         }
 
         try {
-            const response = await fetch('https://firestore.googleapis.com/v1/projects/pets-store-2/databases/(default)/documents/pets/',
+            const response = await fetch('https://firestore.googleapis.com/v1/projects/itec4012-a03/databases/(default)/documents/groceries',
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,50 +54,57 @@ export const NewItemPage = () => {
     }
 
     return (
-        <div className="pets-page">
-            <form className="form-layout" onSubmit={handleSubmit(submitPet)}>
-                <h2>Submit a new pet: </h2>
+        <div className="new-item-page">
+            <form className="form-layout" onSubmit={handleSubmit(submitGroceryItem)}>
+                <h2>Add a new grocery item: </h2>
                 <br />
 
-                {/* Pet type */}
-                <label htmlFor="petType"> Pet Type </label>
-                <input 
-                    {...register("petType")}
-                    name="petType"
-                    required 
-                />
-
-                {/* Pet name */}
+                {/* Name */}
                 <label htmlFor="name"> Name </label>
                 <input 
                     {...register("name")}
                     name="name"
                     required 
-                    type="text"
                 />
 
-                {/* Pet breed */}
-                <label htmlFor="breed"> Breed </label>
+                {/* Grocery item Category */}
+                <label htmlFor="category"> Category </label>
                 <input 
-                    {...register("breed")}
-                    name="breed"
+                    {...register("category")}
+                    name="category"
                     required 
                     type="text"
                 />
 
                 {/* Image */}
-                <label htmlFor="image"> Image URL </label>
+                <label htmlFor="img"> Image URL </label>
                 <input 
-                    {...register("image")}
-                    name="image"
+                    {...register("img")}
+                    name="img"
                     required 
                 />
 
                 {/* Age */}
-                <label htmlFor="age"> Age </label>
+                <label htmlFor="price"> Price </label>
                 <input 
-                    {...register("age")}
-                    name="age"
+                    {...register("price")}
+                    name="price"
+                    required 
+                />
+
+                {/* Age */}
+                <label htmlFor="weight"> Weight </label>
+                <input 
+                    {...register("weight")}
+                    name="weight"
+                    required 
+                />
+
+                {/* description */}
+                <label htmlFor="description"> Description </label>
+                <input 
+                    {...register("description")}
+                    name="description"
                     required 
                 />
 
@@ -109,7 +116,7 @@ export const NewItemPage = () => {
                     required 
                 />
 
-                <input type="submit" value="Submit Pet" />
+                <input type="submit" value="Submit Grocery Item" />
                 <br />
 
             </form>

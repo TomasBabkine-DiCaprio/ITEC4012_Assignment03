@@ -50,7 +50,7 @@ export const GroceryDetailPage = (props) => {
             <h1>{groceryItem.name?.stringValue}</h1>
             <p>$ {groceryItem.price?.doubleValue} / {groceryItem.weight?.integerValue} g</p>
             <p>Category: {groceryItem.category?.stringValue}</p>
-            <p>Expires: {groceryItem.expires?.timestampValue}</p>
+            <p>Description: {groceryItem.description?.stringValue}</p>
           </div>
         </div>
       </div>
