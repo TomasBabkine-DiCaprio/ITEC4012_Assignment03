@@ -10,10 +10,14 @@ import {
 import { HomePage } from './components/pages/Home-Page';
 import { GroceryDetailPage } from './components/pages/GroceryDetailPage';
 
+// import NavBar
+import { Navbar } from './components/Navbar';
+
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <HomePage></HomePage>
