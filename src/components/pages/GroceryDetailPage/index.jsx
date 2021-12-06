@@ -6,6 +6,9 @@ import { useContext, useEffect, useState } from 'react';
 // Import the global state
 import GroceryContext from '../../../context/groceryContext';
 
+// Import history
+import { useHistory } from 'react-router';
+
 export const GroceryDetailPage = (props) => {
 
   // Get id from the URL
@@ -13,21 +16,46 @@ export const GroceryDetailPage = (props) => {
 
   const [groceryItem, setGroceryItem] = useState({});
 
-  // Global state where all the grocery items info are stored
+  // Use groceries stored in global state
   const globalState = useContext(GroceryContext);
-
 
   useEffect(() => {
     const grocery = globalState.groceries.find(
-      (item) => item.id.integerValue == id
+      (item) => item.id.integerValue === id
     );
 
-    console.log(grocery);
+    setGroceryItem(grocery);
 
-    setGroceryItem(groceryItem);
   }, [globalState]);
 
-  return (
-    <div>Now showing {id}</div>
-  )
+  const history = useHistory();
+
+  // Back to home page when the user clicks the button
+  const backToHome = () => {
+    history.push('/');
+  }
+
+  // Display
+  if (groceryItem) {
+    return (
+      <div className="details-page">
+        <div className="backButtonContainer">
+          <button typeof="button" onClick={backToHome}>Back</button>
+        </div>
+        <div className="product-details">
+          <div className="img-container">
+            <img src={groceryItem.img?.stringValue} alt="Product photo"/>
+          </div>
+          <div className="info-container">
+            <h1>{groceryItem.name?.stringValue}</h1>
+            <p>$ {groceryItem.price?.doubleValue} / {groceryItem.weight?.integerValue} g</p>
+            <p>Category: {groceryItem.category?.stringValue}</p>
+            <p>Expires: {groceryItem.expires?.timestampValue}</p>
+          </div>
+        </div>
+      </div>
+    )
+  } else {
+    <p>No item with this id was found</p>
+  }
 }

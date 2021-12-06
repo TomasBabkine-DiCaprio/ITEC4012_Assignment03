@@ -30,6 +30,7 @@ export const HomePage = () => {
     }, []
   );
 
+  // Update global context when groceries from the API are updated
   useEffect(
     () => {
       globalState.initializeGroceryList(groceries);
@@ -61,9 +62,6 @@ export const HomePage = () => {
     }
   }
 
-
-  console.log(groceries);
-  console.log(globalState);
   // Map through all the grocery items from the database, and display them
   return (
     <div className="groceries-page">
