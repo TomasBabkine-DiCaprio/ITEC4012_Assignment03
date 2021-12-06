@@ -16,15 +16,18 @@ export const GroceryDetailPage = (props) => {
   // Global state where all the grocery items info are stored
   const globalState = useContext(GroceryContext);
 
+
   useEffect(() => {
     const grocery = globalState.groceries.find(
-      (item) => item.id.stringValue === id
+      (item) => item.id.integerValue == id
     );
-    setGroceryItem(grocery);
-  }, []);
+
+    console.log(grocery);
+
+    setGroceryItem(groceryItem);
+  }, [globalState]);
 
   return (
-    <div>Now showing {id}
-      <img src={groceryItem.image?.stringValue} />
+    <div>Now showing {id}</div>
   )
 }
