@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Tomas Babkine-Di Caprio - Mark McGregor
+# ITEC4012 - Assignment 03 - Fall 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For this assignment, students had a to create a Firebase database and connect it to a simple front-end. 
 
-## Available Scripts
+In our case, we designed a database to store our grocery list items!
 
-In the project directory, you can run:
+Since we did this project as a team, we also added a new item page to upload any other ingredients we might need using the POST method.
 
-### `npm start`
+## Contributions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+While we both tackled difficult tasks together and helped debug the other person's code when necessary, here is a brief outline describing what was done by each member:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Mark** - Global context, structure of the pet detail page, filling the initial database with dummy data for testing purposes.
 
-### `npm test`
+**Tomas** - Home page, styling of the web app, new item page, new item form back-end, set up of the GitHub repo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Components
 
-### `npm run build`
+Here is how our app is broken into components:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**1. pages / home-page**
+This component is rendered when the user first opens the app using a browser. The homepage displays all the grocery items stored in the database as well as quick information that would be useful to know at a glance
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**2. pages / GroceryDetailPage**
+This component displays more information concerning the items stored in the database. Each item gets its own details page that is rendered using its id parameter and the data stored in the global context. To render this page and the data concerning a grocery item, click on the name of the desired grocery item.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**3. pages / NewItemPage**
+This page allows the user to add a new grocery item to the database. On submit, the user is then redirected to the homepage where their new item is now added to the list.
 
-### `npm run eject`
+**4. Navbar**
+Since this item can be found on every page of the app, it was created as its own component.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**5. GroceryItem**
+This component is rendered on the homepage and displays quick information concerning each grocery item. It also contains a link to an individual page which displays more information for every item stored in the database.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Global Context
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To access all of the data concerning the grocery items at every level of the app, this information is stored in the global context which is then wrapped around the app. This is done when the information is first fetched from the API, but also used as a state, and updated as soon as the information in the database is modified or when a new item is added.
