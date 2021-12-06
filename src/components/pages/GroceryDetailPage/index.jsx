@@ -19,6 +19,7 @@ export const GroceryDetailPage = (props) => {
   // Use groceries stored in global state
   const globalState = useContext(GroceryContext);
 
+  // update the grocery item whenever the globalstate changes
   useEffect(() => {
     const grocery = globalState.groceries.find(
       (item) => item.id.integerValue === id
@@ -35,8 +36,9 @@ export const GroceryDetailPage = (props) => {
     history.push('/');
   }
 
-  // Display
+  // Check if there is a grocery item before displaying
   if (groceryItem) {
+    // Display grocery item details
     return (
       <div className="details-page">
         <div className="backButtonContainer">
@@ -44,13 +46,13 @@ export const GroceryDetailPage = (props) => {
         </div>
         <div className="product-details">
           <div className="img-container">
-            <img src={groceryItem.img?.stringValue} alt="Product photo"/>
+            <img src={groceryItem.img ?.stringValue} alt="Product photo" />
           </div>
           <div className="info-container">
-            <h1>{groceryItem.name?.stringValue}</h1>
-            <p>$ {groceryItem.price?.doubleValue} / {groceryItem.weight?.integerValue} g</p>
-            <p>Category: {groceryItem.category?.stringValue}</p>
-            <p>Description: {groceryItem.description?.stringValue}</p>
+            <h1>{groceryItem.name ?.stringValue}</h1>
+            <p>$ {groceryItem.price ?.doubleValue} / {groceryItem.weight ?.integerValue} g</p>
+            <p>Category: {groceryItem.category ?.stringValue}</p>
+            <p>Description: {groceryItem.description ?.stringValue}</p>
           </div>
         </div>
       </div>

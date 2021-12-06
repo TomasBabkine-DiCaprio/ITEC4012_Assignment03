@@ -18,6 +18,7 @@ export const HomePage = () => {
   // Global context
   const globalState = useContext(GroceryContext);
 
+  // Get the groceries from the API when initialized
   useEffect(
     () => {
       getGroceries();
